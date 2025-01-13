@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import LandingPage from "./pages/LandingPage";
 import { supabase } from "./services/SupabaseClient";
 import HomePage from "./pages/HomePage";
+import SignUpPage from "./pages/SignUpPage";
 
 const App = () => {
 
@@ -15,7 +16,7 @@ const App = () => {
         const { data, error } = await supabase.auth.getSession();
         if (error) console.error(error);
         else {
-          setSession(data?.user);
+          setSession(data?.session.user.id);
         }
       } catch (e) {
         console.error(e);
@@ -35,7 +36,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={session ? <Navigate to="/home" /> : <LandingPage />} />
+        <Route path="/" element={session ? <HomePage /> : <LandingPage />} />
+
+        <Route path="/signup" element={session ? <HomePage /> : <SignUpPage/>} />
+
         <Route path="/home" element={session ? <HomePage /> : <Navigate to="/" />} />
       </Routes>
     </Router>
