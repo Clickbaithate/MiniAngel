@@ -1,58 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../services/SupabaseClient';
-import { Navigate } from 'react-router-dom';
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faSearch, faBook, faVault } from "@fortawesome/free-solid-svg-icons";
+import placeholder from "../assets/images/placeholder.jpeg";
+import Carousel from "../components/MobileComponents/HomePageComponents/FeaturedAngelCarousel.jsx";
+import BottomNavbar from "../components/MobileComponents/HomePageComponents/BottomNavbar.jsx";
+import TopNavbar from "../components/MobileComponents/HomePageComponents/TopNavbar.jsx";
+import LatestReleases from "../components/MobileComponents/HomePageComponents/LatestReleases.jsx";
+import FeaturedAngelCarousel from "../components/MobileComponents/HomePageComponents/FeaturedAngelCarousel.jsx";
+import RecentlyVisited from "../components/MobileComponents/HomePageComponents/RecentlyVisited.jsx";
+import RecentlyCollected from "../components/MobileComponents/HomePageComponents/RecentlyCollected.jsx";
+import { colors } from "../services/Colors.jsx";
+import background from "../assets/images/home_background.png";
 
 const HomePage = () => {
-  const [angels, setAngels] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchAngels = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('angels') 
-          .select('*');  
-
-        if (error) throw error;
-
-        setAngels(data); 
-      } catch (error) {
-        setError(error.message); 
-      } finally {
-        setLoading(false); 
-      }
-    };
-
-    fetchAngels();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  return (
-    <div className="home-page">
-      <h1>All Sonny Angels</h1>
-      <div className="angels-list">
-        {angels.length === 0 ? (
-          <p>No Sonny Angels found.</p>
-        ) : (
-          angels.map((angel) => (
-            <div key={angel.name} className="angel-card">
-              <img src={angel.image} alt={angel.name} className="angel-image" />
-              <h2>{angel.name}</h2>
-              <p>{angel.description}</p>
-            </div>
-          ))
-        )}
+  return(
+    <div className="w-full h-full flex flex-col bg-contain" style={{backgroundColor: colors.background}}>
+      <TopNavbar />
+      <div className="overflow-hidden space-y-3 mt-4 mb-24">
+        <LatestReleases/>
+        <div className="text-xl font-bold text-left pl-6"> Featured Sonny Angel's</div>
+        <FeaturedAngelCarousel/>
+        <div className="text-xl font-bold text-left pl-6"> Recently Visited</div>
+        <RecentlyVisited/>
+        <div className="text-xl font-bold text-left pl-6"> Recently Collected</div>
+        <RecentlyCollected/>
       </div>
+      <BottomNavbar/>
     </div>
   );
-};
+}
 
 export default HomePage;
