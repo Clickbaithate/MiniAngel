@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
-import { supabase } from "../services/SupabaseClient";
-import background from "../assets/images/signup_background.png"; // Ensure this is the correct path for the background
+import { supabase } from "../../services/SupabaseClient";
+import background from "../../assets/images/signup_background.png"
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {

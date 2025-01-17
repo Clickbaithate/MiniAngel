@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
-import menuBackground from "../assets/images/menu_background.png";
-import background from "../assets/images/background.png";
+import menuBackground from "../../assets/images/menu_background.png";
+import background from "../../assets/images/background.png";
 
 const LandingPage = () => {
   

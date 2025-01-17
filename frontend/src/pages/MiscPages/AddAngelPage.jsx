@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { supabase } from "../services/SupabaseClient";
+import { supabase } from "../../services/SupabaseClient";
 
 const AddAngelPage = () => {
   const [angels, setAngels] = useState([]);

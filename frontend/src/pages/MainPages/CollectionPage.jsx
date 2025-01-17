@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import TopNavbar from "../components/MobileComponents/HomePageComponents/TopNavbar.jsx";
-import BottomNavbar from "../components/MobileComponents/HomePageComponents/BottomNavbar.jsx";
-import { colors } from "../services/Colors.jsx";
+import TopNavbar from "../../components/MobileComponents/HomePageComponents/TopNavbar.jsx";
+import BottomNavbar from "../../components/MobileComponents/HomePageComponents/BottomNavbar.jsx";
+import { colors } from "../../services/Colors.jsx";
 import { useState } from "react";
-import background from "../assets/images/home_background.png";
+import background from "../../assets/images/home_background.png";
 
 const CollectionPage = () => {
   

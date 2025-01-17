@@ -91,8 +91,8 @@ const TopNavbar = () => {
         <FontAwesomeIcon icon={faBars} />
       </div>
       {/* Search Bar */}
-      <div className="w-[70%] flex items-center bg-white rounded-xl">
-        <FontAwesomeIcon className="px-2 text-gray-500" icon={faSearch} />
+      <div className="w-[70%] flex items-center bg-white rounded-full">
+        <FontAwesomeIcon className="px-2 pl-4 text-gray-500" icon={faSearch} />
         <input className="w-full bg-transparent mr-4 focus:outline-none" placeholder="Search..."/>
       </div>
       {/* Profile Icon */}

@@ -8,14 +8,14 @@ const RecentlyVisited = () => {
   };
 
   return (
-    <div className="w-full h-32 items-center mx-6">
+    <div className="w-full h-32 items-center">
       {
         angel 
         ?
-          <div className="flex items-center">
-            <div className="w-32 h-32 rounded-xl overflow-hidden bg-white">
+        <div className="flex items-center rounded-xl mx-4 p-1" style={{backgroundColor: 'rgba(240, 233, 233, 0.2)'}}>
+            <div className="w-32 h-32 flex items-center rounded-xl overflow-hidden bg-white">
               <img
-                className="w-full h-full object-cover"
+                className="w-32 h-36 object-cover bg-white"
                 src={angel.image}
                 alt="Rabbit Angel"
               />
@@ -27,10 +27,10 @@ const RecentlyVisited = () => {
             </div>
           </div>
         :
-          <div className="flex items-center">
-            <div className="w-32 h-32 rounded-xl overflow-hidden">
+        <div className="flex items-center rounded-xl mx-4 p-1" style={{backgroundColor: 'rgba(240, 233, 233, 0.2)'}}>
+            <div className="w-32 h-32 flex items-center rounded-xl overflow-hidden bg-white">
               <img
-                className="w-full h-full object-cover"
+                className="w-32 h-36 object-contain bg-white"
                 src="https://png.pngtree.com/png-clipart/20240502/original/pngtree-cute-cat-sad-cartoon-illustration-png-image_14995989.png"
                 alt="Rabbit Angel"
               />
