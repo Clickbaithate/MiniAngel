@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import AddAngelPage from "./pages/AddAngelPage";
+import CollectionPage from "./pages/CollectionPage";
 
 const App = () => {
   const [session, setSession] = useState(null);
@@ -59,6 +60,7 @@ const App = () => {
         <Route path="/login" element={session ? <HomePage /> : <LoginPage />} />
 
         <Route path="/home" element={session ? <HomePage /> : <Navigate to="/" />} />
+        <Route path="/collection" element={session ? <CollectionPage /> : <Navigate to="/" />} />
 
         <Route path="/add" element={session ? <AddAngelPage /> : <Navigate to="/" />} />
       </Routes>

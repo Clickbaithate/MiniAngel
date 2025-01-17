@@ -29,13 +29,13 @@ const BottomNavbar = () => {
     <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[95%] h-16 items-center rounded-3xl flex md:hidden" style={{backgroundColor: colors.primary}}>
       <FontAwesomeIcon 
         className={`w-6 h-6 inline-flex flex-col items-center text-xs font-medium py-3 px-4 flex-grow`}
-        style={{color: currentPage === 0 ? colors.primary : colors.accent}} 
+        style={{color: currentPage === 0 ? colors.secondary : colors.accent}} 
         icon={faBookOpen} 
         onClick={() => handleDiary()} 
       />
       <FontAwesomeIcon 
         className={`w-6 h-6 inline-flex flex-col items-center text-xs font-medium py-3 px-4 flex-grow`}
-        style={{color: currentPage === 1 ? colors.primary : colors.accent}} 
+        style={{color: currentPage === 1 ? colors.secondary : colors.accent}} 
         icon={faFolder} 
         onClick={() => handleCollection()} 
       />
@@ -52,13 +52,13 @@ const BottomNavbar = () => {
       </button>
       <FontAwesomeIcon 
         className={`w-6 h-6 inline-flex flex-col items-center text-xs font-medium py-3 px-4 flex-grow`}
-        style={{color: currentPage === 3 ? colors.primary : colors.accent}} 
+        style={{color: currentPage === 3 ? colors.secondary : colors.accent}} 
         icon={faBookmark} 
         onClick={() => handleVault()} 
       />
       <FontAwesomeIcon 
         className={`w-6 h-6 inline-flex flex-col items-center text-xs font-medium py-3 px-4 flex-grow`}
-        style={{color: currentPage === 4 ? colors.primary : colors.accent}} 
+        style={{color: currentPage === 4 ? colors.secondary : colors.accent}} 
         icon={faUserGroup} 
         onClick={() => handleSocial()} 
       />
