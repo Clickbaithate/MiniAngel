@@ -3,9 +3,10 @@ import TopNavbar from "../components/MobileComponents/HomePageComponents/TopNavb
 import BottomNavbar from "../components/MobileComponents/HomePageComponents/BottomNavbar.jsx";
 import { colors } from "../services/Colors.jsx";
 import { useState } from "react";
+import background from "../assets/images/home_background.png";
 
 const CollectionPage = () => {
-
+  
   const angels = [
     {
       type: "Mini Figure (Regular)",
@@ -104,21 +105,26 @@ const CollectionPage = () => {
       ]
     }
   ];
-  
+
   const [currentType, setCurrentType] = useState(0);
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="relative w-full min-h-screen flex flex-col">
+      {/* Background Layer */}
+      <div className="absolute inset-0 -z-10 bg-center bg-contain opacity-20 bg-repeat-y" style={{ backgroundImage: `url(${background})` }}/>
+      {/* Content */}
       <TopNavbar />
       <div className="overflow-hidden mt-24">
         {/* Types */}
         <div className="overflow-x-scroll scrollbar-hide">
           <div className="flex space-x-2 w-max mx-6">
             {angels.map((angel, index) => (
-              <div 
-                key={index} 
-                className="w-48 h-12 flex items-center justify-center rounded-2xl" 
-                style={{backgroundColor: currentType === index ? colors.secondary : colors.primary}} 
+              <div
+                key={index}
+                className="w-48 h-12 flex items-center justify-center rounded-2xl"
+                style={{
+                  backgroundColor: currentType === index ? colors.secondary : colors.primary,
+                }}
                 onClick={() => setCurrentType(index)}
               >
                 {angel.type}
@@ -129,8 +135,14 @@ const CollectionPage = () => {
         {/* Series */}
         <div className="grid grid-cols-2 gap-y-4 ml-6 mt-6">
           {angels[currentType].series.map((series, index) => (
-            <div className="flex flex-col items-center justify-between w-[180px] h-56 rounded-2xl" style={{backgroundColor: colors.primary}}>
-              <img src={series.image} className="rounded-2xl"/>
+            <div
+              key={index}
+              className="flex flex-col items-center justify-between w-[180px] h-56 rounded-2xl"
+              style={{
+                backgroundColor: colors.primary,
+              }}
+            >
+              <img src={series.image} alt={series.series} className="rounded-2xl" />
               <p className="mb-3 text-white font-bold">{series.series}</p>
             </div>
           ))}
@@ -139,7 +151,6 @@ const CollectionPage = () => {
       <BottomNavbar />
     </div>
   );
-  
-}
+};
 
 export default CollectionPage;
