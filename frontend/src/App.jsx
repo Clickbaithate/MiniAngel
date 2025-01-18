@@ -8,6 +8,7 @@ import LoginPage from "./pages/AuthPages/LoginPage";
 import AddAngelPage from "./pages/MiscPages/AddAngelPage";
 import CollectionPage from "./pages/MainPages/CollectionPage";
 import VaultPage from "./pages/MainPages/VaultPage";
+import DiaryPage from "./pages/MainPages/DiaryPage";
 
 const App = () => {
   const [session, setSession] = useState(null);
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/signup" element={session ? <HomePage /> : <SignUpPage />} />
         <Route path="/login" element={session ? <HomePage /> : <LoginPage />} />
 
+        <Route path="/diary" element={session ? <DiaryPage /> : <Navigate to="/" />} />
         <Route path="/collection" element={session ? <CollectionPage /> : <Navigate to="/" />} />
         <Route path="/home" element={session ? <HomePage /> : <Navigate to="/" />} />
         <Route path="/vault" element={session ? <VaultPage /> : <Navigate to="/" />} />
