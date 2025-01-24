@@ -1,5 +1,6 @@
 const supabase = require("../../services/Supabase");
 
+// https://miniangel.onrender.com/collected ? user_id=f983767a-ca0f-4a37-bf2c-b38e5609b088 & type=Other & series=Kiss%20Kiss
 exports.fetchCollected = async (req, res) => {
   try {
     const { user_id, type, series } = req.query;
