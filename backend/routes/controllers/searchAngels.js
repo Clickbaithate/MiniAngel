@@ -1,4 +1,4 @@
-const supabase = require("../../services/supabase");
+const supabase = require("../../services/Supabase");
 
 // http://localhost:3000/search?name=rabbit&page=30
 exports.searchAngels = async (req, res) => {
