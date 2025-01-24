@@ -10,6 +10,7 @@ import CollectionPage from "./pages/MainPages/CollectionPage";
 import VaultPage from "./pages/MainPages/VaultPage";
 import DiaryPage from "./pages/MainPages/DiaryPage";
 import FriendsPage from "./pages/MainPages/SocialPage";
+import SearchPage from "./pages/AuxiliaryPages/SearchPage";
 
 const App = () => {
   const [session, setSession] = useState(null);
@@ -67,6 +68,8 @@ const App = () => {
         <Route path="/home" element={session ? <HomePage /> : <Navigate to="/" />} />
         <Route path="/vault" element={session ? <VaultPage /> : <Navigate to="/" />} />
         <Route path="/social" element={session ? <FriendsPage /> : <Navigate to="/" />} />
+
+        <Route path="/search" element={session ? <SearchPage /> : <Navigate to="/" />} />
 
         <Route path="/add" element={session ? <AddAngelPage /> : <Navigate to="/" />} />
       </Routes>

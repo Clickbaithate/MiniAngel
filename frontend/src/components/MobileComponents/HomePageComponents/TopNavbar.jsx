@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { colors } from "../../../services/Colors";
 
-const TopNavbar = () => {
+const TopNavbar = ({ query }) => {
 
   const userImage = "https://ih1.redbubble.net/image.5275074962.3139/flat,750x,075,f-pad,750x1000,f8f8f8.jpg";
   const username = "clickbait";
@@ -13,6 +13,8 @@ const TopNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleProfile = () => navigate("/profile");
+
+  const handleSearch = (searchText) => navigate("/search");
 
   useEffect(() => {
     if (menuOpen) {
@@ -93,8 +95,11 @@ const TopNavbar = () => {
       {/* Search Bar */}
       <div className="w-[70%] flex items-center bg-white rounded-full">
         <FontAwesomeIcon className="px-2 pl-4 text-gray-500" icon={faSearch} />
-        <input className="w-full bg-transparent mr-4 focus:outline-none" placeholder="Search..."/>
+        <form onSubmit={(e) => { handleSearch(e.target.query.value) }} className="w-full flex items-center">
+          <input name="query" className="w-full bg-transparent mr-4 focus:outline-none" placeholder={`${query ? query : "Search..."}`}/>
+        </form>
       </div>
+
       {/* Profile Icon */}
       <img className="w-12 h-12 bg-contain bg-center rounded-full cursor-pointer" src={userImage} onClick={handleProfile}/>
     </div>

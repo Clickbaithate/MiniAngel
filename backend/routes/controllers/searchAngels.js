@@ -1,6 +1,6 @@
 const supabase = require("../../services/Supabase");
 
-// http://localhost:3000/search?name=rabbit&page=30
+// https://miniangel.onrender.com/search?name=rabbit&page=30
 exports.searchAngels = async (req, res) => {
   try {
     const { name, page } = req.query;
